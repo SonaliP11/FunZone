@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rock Paper Scissors - FunZone</title>
+  <link rel="stylesheet" href="../assets/css/rock.css">
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+      <div class="navbar-center">
+          <a class="navbar-brand" href="../index.html">
+              <i class="fas fa-gamepad"></i> 
+              <span style="color: blue;">h</span>
+              <span style="color: green;">o</span>
+              <span style="color: yellow;">m</span>
+              <span style="color: orange;">e</span>
+          </a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+               <!-- No additional nav items -->
+          </ul>
+      </div>
+  </nav>
+  <h1>Rock Paper Scissors</h1>
+  
+  <div id="scoreboard">
+    <div>Player Score: <span id="playerScore">0</span></div>
+    <div>Computer Score: <span id="computerScore">0</span></div>
+  </div>
+  
+  <div id="choices">
+    <button data-choice="rock">Rock</button>
+    <button data-choice="paper">Paper</button>
+    <button data-choice="scissors">Scissors</button>
+  </div>
+  
+  <div id="result">Make your choice!</div>
+  <button id="reset">Reset Game</button>
+  
+  <script>
+    const playerScoreElement = document.getElementById('playerScore');
+    const computerScoreElement = document.getElementById('computerScore');
+    const resultElement = document.getElementById('result');
+    const resetButton = document.getElementById('reset');
+    const choiceButtons = document.querySelectorAll('#choices button');
+
+    let playerScore = 0;
+    let computerScore = 0;
+
+    function getComputerChoice() {
+      const choices = ['rock', 'paper', 'scissors'];
+      return choices[Math.floor(Math.random() * choices.length)];
+    }
+
+    function determineWinner(playerChoice, computerChoice) {
+      if (playerChoice === computerChoice) {
+        return 'draw';
+      }
+      if (
+        (playerChoice === 'rock' && computerChoice === 'scissors') ||
+        (playerChoice === 'paper' && computerChoice === 'rock') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        return 'player';
+      }
+      return 'computer';
+    }
+
+    function updateScore(winner) {
+      if (winner === 'player') {
+        playerScore++;
+        playerScoreElement.textContent = playerScore;
+      } else if (winner === 'computer') {
+        computerScore++;
+        computerScoreElement.textContent = computerScore;
+      }
+    }
+
+    function playRound(playerChoice) {
+      const computerChoice = getComputerChoice();
+      const winner = determineWinner(playerChoice, computerChoice);
+      let roundResult = `You chose <strong>${playerChoice}</strong>.<br>Computer chose <strong>${computerChoice}</strong>.<br>`;
+      
+      if (winner === 'draw') {
+        roundResult += "It's a draw!";
+      } else if (winner === 'player') {
+        roundResult += "You win this round!";
+      } else {
+        roundResult += "Computer wins this round!";
+      }
+      updateScore(winner);
+      resultElement.innerHTML = roundResult;
+    }
+
+    choiceButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        playRound(button.getAttribute('data-choice'));
+      });
+    });
+
+    resetButton.addEventListener('click', () => {
+      playerScore = 0;
+      computerScore = 0;
+      playerScoreElement.textContent = playerScore;
+      computerScoreElement.textContent = computerScore;
+      resultElement.textContent = 'Make your choice!';
+    });
+  </script>
+</body>
+</html>

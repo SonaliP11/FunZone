@@ -1,3 +1,4 @@
+/* Global Styles & Background */
 body {
     position: relative;
     color: #ffffff;
@@ -56,49 +57,50 @@ h1 {
 .navbar a:hover {
     text-decoration: underline; /* Optional: Add underline on hover */
 }
-/* Game Board Styles */
-#game {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    margin-bottom: 20px;
-}
-.cell {
-    width: 100px;
-    height: 100px;
-    background-color: rgba(0, 0, 0, 0.5);
+  /* Scoreboard */
+  #scoreboard {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    cursor: pointer;
-    border: 5px solid #fff;
-    transition: background-color 0.3s;
-}
-
-.cell:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Status & Reset Button */
-
-#status {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-button {
+    gap: 30px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  /* Choices Buttons */
+  #choices {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  #choices button {
     padding: 10px 20px;
     font-size: 1rem;
-    cursor: pointer;
     border: none;
     border-radius: 5px;
     background-color: #007bff;
     color: #fff;
+    cursor: pointer;
     transition: background-color 0.3s;
-}
-
-button:hover {
+  }
+  #choices button:hover {
     background-color: #0056b3;
-}
+  }
+  /* Result Display */
+  #result {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 90%;
+  }
+  /* Reset Button */
+  #reset {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  #reset:hover {
+    background-color: #b02a37;
+  }

@@ -1,8 +1,5 @@
 body {
-    background-image: url('../images/bg1.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    position: relative;
     color: #ffffff;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -12,14 +9,59 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
 }
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/bg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(4px); /* Adjust the blur amount */
+    z-index: -1; /* Place the background behind the content */
+}
+
 h1 {
     margin-bottom: 10px;
+    z-index: 1; /* Ensure header is above the background */
+}
+
+.navbar-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.navbar-center .navbar-brand {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Ensure the color is inherited */
+}
+
+.navbar a:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
 }
 #score {
     font-size: 1.2rem;
     margin-bottom: 10px;
+    z-index: 1; /* Ensure score is above the background */
 }
+
 #game-board {
     width: 400px;
     height: 400px;
@@ -28,10 +70,19 @@ h1 {
     grid-template-columns: repeat(20, 1fr);
     border: 2px solid #333;
     background-color: #fff;
+    z-index: 1; /* Ensure game board is above the background */
+    border: 10px solid #333;
 }
+
 .snake {
     background-color: green;
 }
+
 .food {
-    background-color: red;
+    background-image: url('../images/apple1.JPG'); /* Path to your apple image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    image-resolution: from-image;
+    filter: brightness(1.5); /* Increase brightness to make the apple more visible */
 }

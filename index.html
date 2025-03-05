@@ -7,16 +7,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>FunZone</title>
     <style>
-        .navbar-center {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-        .navbar-center .navbar-brand {
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 3rem;
-        }
+        
     </style>
 </head>
 <body>
@@ -44,35 +35,30 @@
         </div>
     </nav>
 
-
     <header>
         <h1>Welcome to FunZone!</h1>
-        <p>Select a game to play:</p>
+        <h3>Select a game to play:</h3>
     </header>
 
     <!-- Body -->
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Tic-Tac-Toe</h5>
-                        <p class="card-text">Enjoy a classic game of Tic-Tac-Toe.</p>
-                        <a href="games/tic-tac-toe.html" class="btn btn-primary">Play Now</a>
-                    </div>
+        <div class="game-grid">
+            <div class="game-item">
+                <img src="assets/images/tic.png" alt="Tic-Tac-Toe">
+                <div class="overlay">
+                    <a href="games/tic-tac-toe.html" class="btn btn-primary">Play Tic-Tac-Toe</a>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Snake Game</h5>
-                        <p class="card-text">Play the classic Snake game.</p>
-                        <a href="games/snake.html" class="btn btn-primary">Play Now</a>
-                    </div>
+            <div class="game-item">
+                <img src="assets/images/snake.avif" alt="Snake Game">
+                <div class="overlay">
+                    <a href="games/snake.html" class="btn btn-primary">Play Snake Game</a>
                 </div>
             </div>
+            <!-- Add more game items as needed -->
         </div>
     </div>
+    
 
     <!-- Footer -->
     <footer class="bg-dark text-center text-lg-start mt-5">

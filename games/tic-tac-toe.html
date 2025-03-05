@@ -21,11 +21,16 @@
             </a>
         </div>
     </nav>
-
-    <h1>Tic Tac Toe</h1>
-    <div id="game"></div>
-    <div id="status">Current Player: X</div>
-    <button id="reset">Reset Game</button>
+    <div class="game-container border-container">
+        <div class="row">
+            <div class="col-mb-4 text-center">
+                <h1>Tic Tac Toe</h1>
+                <div id="game"></div>
+                <div id="status" class="my-4">Current Player: X</div>
+                <button id="reset" class="btn btn-danger">Reset Game</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         const gameContainer = document.getElementById('game');

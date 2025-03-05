@@ -33,6 +33,41 @@ h1 {
     text-align: center;
 }
 
+.navbar {
+    margin-bottom: 80px;
+    margin-top: 0px;
+    top: sticky;
+    z-index: 1; /* Ensure navbar is above the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    /*Add a ::shadow pseudo-element to the navbar */
+    ::shadow {
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        border-radius: 10px;
+        padding: 10px 20px;
+    }    
+}
+
+.navbar-center .navbar-brand {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Ensure the color is inherited */
+}
+
+.navbar a:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
+}
 
 
 /* Game Container Border */

@@ -30,13 +30,26 @@ body::before {
 h1 {
     margin-bottom: 10px;
     z-index: 1; /* Ensure header is above the background */
+    text-align: center;
 }
 
-.navbar-center {
+.navbar {
+    margin-bottom: 80px;
+    margin-top: 0px;
+    top: sticky;
+    z-index: 1; /* Ensure navbar is above the background */
     display: flex;
     justify-content: center;
-    width: 100%;
+    align-items: center;
+    height: 30px;
+    /*Add a ::shadow pseudo-element to the navbar */
+    ::shadow {
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        border-radius: 10px;
+        padding: 10px 20px;
+    }    
 }
+
 .navbar-center .navbar-brand {
     margin-left: auto;
     margin-right: auto;
@@ -45,7 +58,6 @@ h1 {
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
-
 }
 
 .navbar a {
@@ -56,6 +68,7 @@ h1 {
 .navbar a:hover {
     text-decoration: underline; /* Optional: Add underline on hover */
 }
+
 #score {
     font-size: 1.2rem;
     margin-bottom: 10px;
@@ -85,4 +98,32 @@ h1 {
     box-sizing: border-box;
     image-resolution: from-image;
     filter: brightness(1.5); /* Increase brightness to make the apple more visible */
+}
+
+@media (max-width: 1200px) {
+    #game-board {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    #game-board {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    #game-board {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    #game-board {
+        width: 200px;
+        height: 200px;
+    }
 }

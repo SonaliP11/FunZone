@@ -104,3 +104,88 @@ h1 {
   #reset:hover {
     background-color: #b02a37;
   }
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 20rem;
+        position: relative;
+        justify-content: space-evenly;
+    }
+
+    .navbar-center .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    #scoreboard {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    #choices {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #choices button {
+        width: 100%;
+        max-width: 200px;
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    #result {
+        font-size: 1.1rem;
+    }
+
+    #reset {
+        width: 100%;
+        max-width: 200px;
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    .navbar-center .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    #scoreboard {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #choices {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #choices button {
+        width: 100%;
+        max-width: 150px;
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    #result {
+        font-size: 1rem;
+    }
+
+    #reset {
+        width: 100%;
+        max-width: 150px;
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+}

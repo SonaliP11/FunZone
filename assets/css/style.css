@@ -151,3 +151,26 @@ footer p {
 .card .btn-primary:hover {
     background-color: #0056b3;
 }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .game-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjusted min-width for tablets */
+        gap: 10px;
+    }
+
+    .game-item img {
+        height: 100px; /* Adjusted height for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .game-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Adjusted min-width for mobile */
+        gap: 5px;
+    }
+
+    .game-item img {
+        height: 80px; /* Adjusted height for mobile */
+    }
+}

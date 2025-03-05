@@ -15,27 +15,29 @@
               <span style="color: orange;">e</span>
           </a>
       </div>
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-               <!-- No additional nav items -->
-          </ul>
-      </div>
   </nav>
-  <h1>Rock Paper Scissors</h1>
-  
-  <div id="scoreboard">
-    <div>Player Score: <span id="playerScore">0</span></div>
-    <div>Computer Score: <span id="computerScore">0</span></div>
+
+
+
+  <div class="game-container border-container">
+    <div class="row">
+      <div class="col-md-8 text-center">
+        <h1>Rock Paper Scissors</h1>
+        <div id="scoreboard" class="my-4">
+          <div>Player Score: <span id="playerScore">0</span></div>
+          <div>Computer Score: <span id="computerScore">0</span></div>
+        </div>
+        <div id="choices" class="my-4">
+          <button class="btn btn-primary mx-2" data-choice="rock">Rock</button>
+          <button class="btn btn-primary mx-2" data-choice="paper">Paper</button>
+          <button class="btn btn-primary mx-2" data-choice="scissors">Scissors</button>
+        </div>
+        <div id="result" class="my-4">Make your choice!</div>
+        <button id="reset" class="btn btn-danger">Reset Game</button>
+      </div>
+    </div>
   </div>
   
-  <div id="choices">
-    <button data-choice="rock">Rock</button>
-    <button data-choice="paper">Paper</button>
-    <button data-choice="scissors">Scissors</button>
-  </div>
-  
-  <div id="result">Make your choice!</div>
-  <button id="reset">Reset Game</button>
   
   <script>
     const playerScoreElement = document.getElementById('playerScore');

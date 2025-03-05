@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: normal;
     height: 100vh;
     overflow: hidden; /* Prevent scrolling */
 }
@@ -33,11 +33,23 @@ h1 {
     z-index: 1; /* Ensure header is above the background */
 }
 
-.navbar-center {
+.navbar {
+    margin-bottom: 80px;
+    margin-top: 0px;
+    top: sticky;
+    z-index: 1; /* Ensure navbar is above the background */
     display: flex;
     justify-content: center;
-    width: 100%;
+    align-items: center;
+    height: 30px;
+    /*Add a ::shadow pseudo-element to the navbar */
+    ::shadow {
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        border-radius: 10px;
+        padding: 10px 20px;
+    }    
 }
+
 .navbar-center .navbar-brand {
     margin-left: auto;
     margin-right: auto;
@@ -46,7 +58,6 @@ h1 {
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
-
 }
 
 .navbar a {
@@ -57,20 +68,37 @@ h1 {
 .navbar a:hover {
     text-decoration: underline; /* Optional: Add underline on hover */
 }
-  /* Scoreboard */
-  #scoreboard {
+
+/* Game Container Border */
+.border-container {
+    border: 5px solid #007bff; /* Blue border */
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Scoreboard */
+#scoreboard {
     display: flex;
     gap: 30px;
     margin-bottom: 20px;
     font-size: 1.2rem;
-  }
-  /* Choices Buttons */
-  #choices {
+}
+
+/* Choices Buttons */
+#choices {
     display: flex;
     gap: 15px;
     margin-bottom: 20px;
-  }
-  #choices button {
+}
+
+#choices button {
     padding: 10px 20px;
     font-size: 1rem;
     border: none;
@@ -79,19 +107,22 @@ h1 {
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  #choices button:hover {
+}
+
+#choices button:hover {
     background-color: #0056b3;
-  }
-  /* Result Display */
-  #result {
+}
+
+/* Result Display */
+#result {
     font-size: 1.3rem;
     margin-bottom: 20px;
     text-align: center;
     max-width: 90%;
-  }
-  /* Reset Button */
-  #reset {
+}
+
+/* Reset Button */
+#reset {
     padding: 10px 20px;
     font-size: 1rem;
     border: none;
@@ -100,92 +131,31 @@ h1 {
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  #reset:hover {
-    background-color: #b02a37;
-  }
+}
 
+#reset:hover {
+    background-color: #b02a37;
+}
 
 /* Media Queries */
 @media (max-width: 768px) {
-    body {
-        padding: 10px;
-        font-size: 20rem;
-        position: relative;
-        justify-content: space-evenly;
+    
+    .border-container {
+        max-width: 700px;
+        height: 100%;
+        padding: 30px;
+        border-width: 10px;
     }
 
-    .navbar-center .navbar-brand {
-        font-size: 1.5rem;
+    h1 {
+        font-size: 2.5rem;
     }
 
-    #scoreboard {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+    .navbar {
+        margin-bottom: 20px;
+        margin-top: 0px;
+        top: sticky;
     }
 
-    #choices {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    #choices button {
-        width: 100%;
-        max-width: 200px;
-        padding: 10px;
-        font-size: 0.9rem;
-    }
-
-    #result {
-        font-size: 1.1rem;
-    }
-
-    #reset {
-        width: 100%;
-        max-width: 200px;
-        padding: 10px;
-        font-size: 0.9rem;
-    }
 }
 
-@media (max-width: 480px) {
-    body {
-        padding: 5px;
-    }
-
-    .navbar-center .navbar-brand {
-        font-size: 1.2rem;
-    }
-
-    #scoreboard {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    #choices {
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-    }
-
-    #choices button {
-        width: 100%;
-        max-width: 150px;
-        padding: 8px;
-        font-size: 0.8rem;
-    }
-
-    #result {
-        font-size: 1rem;
-    }
-
-    #reset {
-        width: 100%;
-        max-width: 150px;
-        padding: 8px;
-        font-size: 0.8rem;
-    }
-}

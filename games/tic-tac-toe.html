@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tic Tac Toe - FunZone</title>
+  <link rel="stylesheet" href="../assets/css/tic.css">
+  <style>
+    /* Background & Global Styles */
+    
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="navbar-center">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-gamepad"></i> 
+                <span style="color: blue;">h</span>
+                <span style="color: green;">o</span>
+                <span style="color: yellow;">m</span>
+                <span style="color: orange;">e</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- No additional nav items -->
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Tic Tac Toe</h1>
+    <div id="game"></div>
+    <div id="status">Current Player: X</div>
+    <button id="reset">Reset Game</button>
+
+    <script>
+        const gameContainer = document.getElementById('game');
+        const statusDisplay = document.getElementById('status');
+        const resetButton = document.getElementById('reset');
+        let currentPlayer = 'X';
+        let gameActive = true;
+        let gameState = ['', '', '', '', '', '', '', '', ''];
+
+        // Winning combinations (indices of gameState)
+        const winningConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        // Handle cell clicks
+        function handleCellClick(event) {
+            const cell = event.target;
+            const cellIndex = parseInt(cell.getAttribute('data-cell-index'));
+            if (gameState[cellIndex] !== '' || !gameActive) {
+                return;
+        }
+        gameState[cellIndex] = currentPlayer;
+        cell.textContent = currentPlayer;
+        checkResult();
+        }
+
+        // Check for win or draw
+        function checkResult() {
+            let roundWon = false;
+            for (let condition of winningConditions) {
+                const [a, b, c] = condition;
+                if (gameState[a] === '' || gameState[b] === '' || gameState[c] === '') {
+                    continue;
+            }
+            if (gameState[a] === gameState[b] && gameState[b] === gameState[c]) {
+                roundWon = true;
+                break;
+            }
+        }
+        if (roundWon) {
+            statusDisplay.textContent = `Player ${currentPlayer} wins!`;
+            gameActive = false;
+            return;
+        }
+        if (!gameState.includes('')) {
+            statusDisplay.textContent = 'Game ended in a draw!';
+            gameActive = false;
+            return;
+        }
+        // Switch player
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        statusDisplay.textContent = `Current Player: ${currentPlayer}`;
+        }
+
+        // Reset the game
+        function resetGame() {
+            currentPlayer = 'X';
+            gameActive = true;
+            gameState = ['', '', '', '', '', '', '', '', ''];
+            statusDisplay.textContent = `Current Player: ${currentPlayer}`;
+            document.querySelectorAll('.cell').forEach(cell => cell.textContent = '');
+        }
+
+        // Create the game board
+        function createBoard() {
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.setAttribute('data-cell-index', i);
+                cell.addEventListener('click', handleCellClick);
+                gameContainer.appendChild(cell);
+            }
+        }
+
+        createBoard();
+        resetButton.addEventListener('click', resetGame);
+    </script>
+</body>
+</html>

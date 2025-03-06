@@ -36,8 +36,6 @@ h1 {
 .navbar {
     margin-bottom: 40px;
     margin-top: 20px;
-    top: sticky;
-    position: sticky;
     z-index: 1; /* Ensure navbar is above the background */
     display: flex;
     justify-content: center;
